@@ -25,6 +25,7 @@ body {
     justify-content: center;
     height: 75%;
     width: 60%;
+    max-width: 400px;
     padding: 30px;
     border: 1px solid #92A8D1;
     border-radius: 6px;
@@ -195,4 +196,13 @@ body {
 .delete-icon {
     margin: 15px;
     color: red;
+}
+
+@media screen and (min-width: 600px){
+    .posts-container-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 }

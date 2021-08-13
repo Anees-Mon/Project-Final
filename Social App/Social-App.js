@@ -11,8 +11,6 @@ let activeDetailId
 let isPut
 
 //login section;
-userName.value = "user1"
-password.value = "pass1"
 loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (userName.value === "user1" && password.value === "pass1") {
@@ -139,7 +137,7 @@ function createPost(postObj, prep = false) {
 
     let imageElm = document.createElement("img");
     imageElm.id = imageID;
-    imageElm.src = "http://lorempixel.com/640/480/city"
+    imageElm.src = postObj.Image //"http://lorempixel.com/640/480/city"
     imageElm.classList.add("post-img");
     imageElm.onclick = () => showDetails(postObj._id);
     listElm.appendChild(imageElm);
@@ -231,6 +229,8 @@ async function deletePost(objId) {
         console.log(e.message)
     }
 }
+
+//edit post form-autofill
 async function editPost(postObj) {
     console.log(postObj)
     console.log(postButton)
@@ -258,7 +258,7 @@ async function editPost(postObj) {
 }
 
 
-//create commments
+//create commments API
 async function createAppendComment() {
     let commentTextEl = document.getElementById("commentInput")
     let commentsContainer = document.getElementById("commentsContainer")
@@ -328,6 +328,7 @@ async function getComments(objId) {
     display('sectionDetailedView');
 }
 
+//delete comment API
 async function deleteComment(comObjId) {
     console.log("delete")
     let commentsContainer = document.getElementById("commentsContainer")
