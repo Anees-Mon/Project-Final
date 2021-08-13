@@ -4,9 +4,6 @@ const loginForm = document.getElementById("loginForm");
 const createForm = document.getElementById("createForm");
 const postButton = document.getElementById("postButton");
 
-document.getElementById("sectionHome").classList.add("hidePage")
-document.getElementById("sectionDetailedView").classList.add("hidePage")
-
 let user;
 let postsContainerElm = document.getElementById("postsContainer");
 let jsonData;
@@ -20,13 +17,11 @@ loginForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (userName.value === "user1" && password.value === "pass1") {
         user = "1";
-        document.getElementById("sectionLogin").classList.add("hidePage")
-        document.getElementById("sectionHome").classList.remove("hidePage")
+        display('sectionHome');
         getPosts();
     } else if (userName.value === "user2" && password.value === "pass2") {
         user = "2";
-        document.getElementById("sectionLogin").classList.add("hidePage")
-        document.getElementById("sectionHome").classList.remove("hidePage")
+        display('sectionHome');
         getPosts();
     }
     userName.value = "";
@@ -330,8 +325,7 @@ async function getComments(objId) {
         commentsContainer.appendChild(commentHr)
 
     }
-    document.getElementById("sectionHome").classList.add("hidePage")
-    document.getElementById("sectionDetailedView").classList.remove("hidePage")
+    display('sectionDetailedView');
 }
 
 async function deleteComment(comObjId) {
@@ -370,9 +364,4 @@ async function showDetails(objId) {
     postsContainerElm.textContent = ""
     createPost(specPostObj);
     getComments(objId)
-}
-
-function displayed(loc) {
-    document.getElementById("sectionDetailedView").classList.add("hidePage")
-    document.getElementById("sectionHome").classList.remove("hidePage")
 }

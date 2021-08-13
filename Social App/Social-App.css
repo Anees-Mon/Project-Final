@@ -8,10 +8,6 @@ body {
     box-sizing: border-box;
 }
 
-.hidePage {
-    display: none;
-}
-
 .login-page-bg {
     background-color: #9BB7D4;
     display: flex;
